@@ -38,7 +38,7 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="/website/assets/images/my-avatar.png" alt="Gabriel Dalton" width="80">
+          <img src="/website/assets/images/gabrieldalton.jpeg" alt="Gabriel Dalton" width="80">
         </figure>
 
         <div class="info-content">
@@ -69,7 +69,7 @@
             <div class="contact-info">
               <p class="contact-title">Email</p>
 
-              <a href="mailto:me@gabrieldalton.com" class="contact-link">me@gabrieldalton.com</a>
+              <a href="javascript:void(0)" class="contact-link" data-email="me@gabrieldalton.com">me@gabrieldalton.com</a>
             </div>
 
           </li>
@@ -949,6 +949,17 @@
         overlays.forEach(overlay => {
           overlay.addEventListener('click', () => {
             modals.forEach(modal => modal.classList.remove('active'));
+          });
+        });
+
+        // Email copy functionality
+        document.querySelector('[data-email]').addEventListener('click', function() {
+          const email = this.dataset.email;
+          navigator.clipboard.writeText(email).then(() => {
+            this.classList.add('copied');
+            setTimeout(() => {
+              this.classList.remove('copied');
+            }, 2000);
           });
         });
       </script>

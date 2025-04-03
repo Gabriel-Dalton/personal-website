@@ -360,7 +360,26 @@ main {
 
 .avatar-box {
   background: var(--bg-gradient-onyx);
+  border-radius: 30px;
+  padding: 10px;
+  box-shadow: var(--shadow-2);
+  transition: var(--transition-1);
+}
+
+.avatar-box img {
+  width: 100%;
+  height: auto;
   border-radius: 20px;
+  object-fit: cover;
+  transition: var(--transition-1);
+}
+
+.avatar-box:hover {
+  transform: translateY(-5px);
+}
+
+.avatar-box:hover img {
+  transform: scale(1.05);
 }
 
 .info-content .name {
@@ -449,12 +468,48 @@ main {
   margin-bottom: 2px;
 }
 
-.contact-info :is(.contact-link, time, address) {
+.contact-info .contact-link {
+  color: var(--light-gray);
+  font-size: var(--fs-7);
+  transition: color 0.25s ease;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.contact-info .contact-link:hover {
+  color: var(--orange-yellow-crayola);
+}
+
+.contact-info .contact-link::after {
+  content: "Click to copy";
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 5px;
+  background: var(--onyx);
+  color: var(--orange-yellow-crayola);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: var(--fs-8);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.contact-info .contact-link.copied::after {
+  content: "Copied!";
+}
+
+.contact-info .contact-link:hover::after {
+  opacity: 1;
+}
+
+.contact-info :is(time, address) {
   color: var(--white-2);
   font-size: var(--fs-7);
 }
-
-.contact-info address { font-style: normal; }
 
 .social-list {
   display: flex;
@@ -469,7 +524,6 @@ main {
   color: var(--light-gray-70);
   font-size: 18px;
 }
-
 
 .social-item .social-link:hover { color: var(--light-gray); }
 
@@ -1882,13 +1936,14 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .contacts-list { grid-template-columns: 1fr; }
 
-  .contact-info :is(.contact-link) {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  .contact-info .contact-link {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    width: auto;
   }
 
-  .contact-info :is(.contact-link, time, address) {
+  .contact-info :is(time, address) {
     --fs-7: 14px;
     font-weight: var(--fw-300);
   }
