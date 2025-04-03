@@ -273,7 +273,7 @@
               <div class="content-card" data-testimonials-item>
 
                 <figure class="testimonials-avatar-box">
-                  <img src="/website/assets/images/avatar-1.png" alt="Tricia Collingham" width="60" data-testimonials-avatar>
+                  <div class="initial-avatar" data-testimonials-avatar data-initials="TC">TC</div>
                 </figure>
 
                 <h4 class="h4 testimonials-item-title" data-testimonials-title>Tricia Collingham</h4>
@@ -291,7 +291,7 @@
               <div class="content-card" data-testimonials-item>
 
                 <figure class="testimonials-avatar-box">
-                  <img src="/website/assets/images/avatar-2.png" alt="Jordan Mittler" width="60" data-testimonials-avatar>
+                  <div class="initial-avatar" data-testimonials-avatar data-initials="JM">JM</div>
                 </figure>
 
                 <h4 class="h4 testimonials-item-title" data-testimonials-title>Jordan Mittler</h4>
@@ -309,7 +309,7 @@
               <div class="content-card" data-testimonials-item>
 
                 <figure class="testimonials-avatar-box">
-                  <img src="/website/assets/images/avatar-3.png" alt="Revd. Philip Cochrane" width="60" data-testimonials-avatar>
+                  <div class="initial-avatar" data-testimonials-avatar data-initials="PC">PC</div>
                 </figure>
 
                 <h4 class="h4 testimonials-item-title" data-testimonials-title>Revd. Philip Cochrane</h4>
@@ -327,7 +327,7 @@
               <div class="content-card" data-testimonials-item>
 
                 <figure class="testimonials-avatar-box">
-                  <img src="/website/assets/images/avatar-4.png" alt="Michael Andersen" width="60" data-testimonials-avatar>
+                  <div class="initial-avatar" data-testimonials-avatar data-initials="MA">MA</div>
                 </figure>
 
                 <h4 class="h4 testimonials-item-title" data-testimonials-title>Michael Andersen</h4>
@@ -361,10 +361,10 @@
 
             <div class="modal-img-wrapper">
               <figure class="modal-avatar-box">
-                <img src="/website/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+                <div class="initial-avatar large" data-modal-img data-initials="TC"></div>
               </figure>
 
-              <img src="/website/images/icon-quote.svg" alt="quote icon">
+              <img src="/website/assets/images/icon-quote.svg" alt="quote icon">
             </div>
 
             <div class="modal-content">
@@ -926,31 +926,38 @@
       </div>
       
       <script>
-        const triggers = document.querySelectorAll('[data-modal-trigger]');
-        const modals = document.querySelectorAll('[data-modal-container]');
-        const closeBtns = document.querySelectorAll('[data-modal-close-btn]');
-        const overlays = document.querySelectorAll('[data-overlay]');
-      
-        triggers.forEach(trigger => {
-          trigger.addEventListener('click', e => {
-            e.preventDefault();
-            const id = trigger.getAttribute('data-modal-trigger');
-            const modal = document.getElementById(`modal-${id}`);
-            if (modal) modal.classList.add('active');
+        // Testimonials modal functionality
+        const testimonialsModalContainer = document.querySelector('[data-modal-container]');
+        const overlay = document.querySelector('[data-overlay]');
+        const modalCloseBtn = document.querySelector('[data-modal-close-btn]');
+        const testimonialItems = document.querySelectorAll('[data-testimonials-item]');
+
+        // Modal toggle function
+        const toggleTestimonialModal = () => {
+          testimonialsModalContainer.classList.toggle('active');
+          overlay.classList.toggle('active');
+        }
+
+        // Add click event to all testimonial items
+        testimonialItems.forEach(item => {
+          item.addEventListener('click', () => {
+            const modalImg = item.querySelector('[data-testimonials-avatar]').innerHTML;
+            const modalTitle = item.querySelector('[data-testimonials-title]').innerHTML;
+            const modalText = item.querySelector('[data-testimonials-text]').innerHTML;
+
+            document.querySelector('[data-modal-img]').innerHTML = modalImg;
+            document.querySelector('[data-modal-title]').innerHTML = modalTitle;
+            document.querySelector('[data-modal-text]').innerHTML = modalText;
+
+            toggleTestimonialModal();
           });
         });
-      
-        closeBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-            modals.forEach(modal => modal.classList.remove('active'));
-          });
-        });
-      
-        overlays.forEach(overlay => {
-          overlay.addEventListener('click', () => {
-            modals.forEach(modal => modal.classList.remove('active'));
-          });
-        });
+
+        // Close modal when clicking the close button
+        modalCloseBtn.addEventListener('click', toggleTestimonialModal);
+
+        // Close modal when clicking outside
+        overlay.addEventListener('click', toggleTestimonialModal);
 
         // Email copy functionality
         document.querySelector('[data-email]').addEventListener('click', function() {
