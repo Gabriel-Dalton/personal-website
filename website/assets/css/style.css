@@ -500,8 +500,9 @@ main {
 }
 
 .contact-info .contact-link {
-  color: var(--light-gray-70);
+  color: var(--white-2);
   font-size: var(--fs-7);
+  font-weight: var(--fw-300);
   transition: color 0.25s ease;
   position: relative;
   cursor: pointer;
