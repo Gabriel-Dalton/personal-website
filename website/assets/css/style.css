@@ -500,7 +500,7 @@ main {
 }
 
 .contact-info .contact-link {
-  color: var(--light-gray);
+  color: var(--light-gray-70);
   font-size: var(--fs-7);
   transition: color 0.25s ease;
   position: relative;
@@ -509,7 +509,7 @@ main {
 }
 
 .contact-info .contact-link:hover {
-  color: var(--orange-yellow-crayola);
+  color: var(--light-gray);
 }
 
 .contact-info .contact-link::after {
