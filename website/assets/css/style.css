@@ -2107,32 +2107,38 @@ textarea.form-input::-webkit-resizer { display: none; }
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 25px;
+  margin-bottom: 1.5rem;
   padding-right: 40px;
 }
 
 .project-modal-header > div {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.25rem;
 }
 
 .project-modal-title {
+  font-size: 1.5rem;
   color: var(--white-2);
-  font-size: var(--fs-3);
-  font-weight: var(--fw-600);
-  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.project-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .project-modal-category {
-  color: var(--light-gray-70);
-  font-size: var(--fs-6);
-  font-weight: var(--fw-500);
+  color: var(--orange-yellow-crayola);
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
-.project-modal-header time {
-  color: var(--vegas-gold);
-  font-size: var(--fs-6);
+.project-meta time {
+  color: var(--light-gray);
+  font-size: 0.85rem;
+  font-weight: 400;
 }
 
 .project-modal-content {
