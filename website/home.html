@@ -172,17 +172,13 @@
       }
     }
 
-    .project-modal-content {
-      border-radius: 14px;
-      overflow: hidden;
-    }
-
     .project-modal-image {
       width: 100%;
       aspect-ratio: 16/9;
       overflow: hidden;
       border-radius: 14px;
       position: relative;
+      margin-bottom: 1rem;
     }
     
     .project-modal-image img {
@@ -195,7 +191,8 @@
     }
 
     .project-modal-details {
-      border-radius: 0 0 14px 14px;
+      border-radius: 14px;
+      margin-top: 1rem;
     }
 
     /* Project image standardization */
@@ -204,14 +201,21 @@
       overflow: hidden;
       position: relative;
       border-radius: 14px;
+      width: 100%;
     }
 
     .project-img img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       object-position: center;
       border-radius: 14px;
+    }
+
+    /* Specific positioning for KG Times image */
+    [data-project-item="modal-king-george"] .project-img img {
+      object-fit: cover;
+      object-position: left center;
     }
 
     /* Specific positioning for Pendrellis images */
@@ -219,6 +223,12 @@
     #modal-pendrellis .project-modal-image img {
       object-fit: cover;
       object-position: center 20%;
+    }
+
+    /* Keep SPES and Denman Mall as they are */
+    [data-project-item="modal-spes"] .project-img img,
+    [data-project-item="modal-denman-mall"] .project-img img {
+      object-fit: contain;
     }
   </style>
 
@@ -237,7 +247,7 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="/website/assets/images/gabrieldalton.jpeg" alt="Gabriel Dalton" width="80">
+          <img src="/website/assets/images/gabrieldalton.jpeg" alt="Portrait photo of Gabriel Dalton, a young professional with short hair" width="80">
         </figure>
 
         <div class="info-content">
@@ -246,10 +256,9 @@
           <p class="title">Founder & CEO</p>
         </div>
 
-        <button class="info_more-btn" data-sidebar-btn>
+        <button class="info_more-btn" data-sidebar-btn aria-label="Toggle contact information">
           <span>View Contact Details</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
+          <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
         </button>
 
       </div>
@@ -302,17 +311,17 @@
 
         <ul class="social-list">
             <li class="social-item">
-              <a href="https://www.linkedin.com/in/gabrieldalton/" target="_blank" class="social-link">
-                <ion-icon name="logo-linkedin"></ion-icon>
+              <a href="https://www.linkedin.com/in/gabrieldalton/" target="_blank" class="social-link" aria-label="Visit Gabriel's LinkedIn profile">
+                <ion-icon name="logo-linkedin" aria-hidden="true"></ion-icon>
               </a>
             </li> <li class="social-item">
-              <a href="https://www.facebook.com/photoswithgabe/" target="_blank" class="social-link">
-                <ion-icon name="logo-facebook"></ion-icon>
+              <a href="https://www.facebook.com/photoswithgabe/" target="_blank" class="social-link" aria-label="Visit Gabriel's Facebook page">
+                <ion-icon name="logo-facebook" aria-hidden="true"></ion-icon>
               </a>
             </li>
             <li class="social-item">
-              <a href="https://www.instagram.com/photoswithgabe/" target="_blank" class="social-link">
-                <ion-icon name="logo-instagram"></ion-icon>
+              <a href="https://www.instagram.com/photoswithgabe/" target="_blank" class="social-link" aria-label="Visit Gabriel's Instagram profile">
+                <ion-icon name="logo-instagram" aria-hidden="true"></ion-icon>
               </a>
             </li>
            
@@ -336,22 +345,22 @@
         - #NAVBAR
       -->
 
-      <nav class="navbar">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
         <ul class="navbar-list">
           <li class="navbar-item">
-            <button class="navbar-link active" data-nav-link="about">About</button>
+            <button class="navbar-link active" data-nav-link="about" aria-label="About section">About</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link="resume">Resume</button>
+            <button class="navbar-link" data-nav-link="resume" aria-label="Resume section">Resume</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link="portfolio">Portfolio</button>
+            <button class="navbar-link" data-nav-link="portfolio" aria-label="Portfolio section">Portfolio</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link="contact">Contact</button>
+            <button class="navbar-link" data-nav-link="contact" aria-label="Contact section">Contact</button>
           </li>
         </ul>
       </nav>
@@ -384,12 +393,12 @@
 
           <h3 class="h3 service-title">What I'm doing</h3>
 
-          <ul class="service-list">
+          <ul class="service-list" role="list">
 
             <li class="service-item">
 
-              <div class="service-icon-box">
-                <img src="/website/assets/images/icon-dev.svg" alt="Web development icon" width="40">
+              <div class="service-icon-box" aria-hidden="true">
+                <img src="/website/assets/images/icon-dev.svg" alt="" width="40">
               </div>
 
               <div class="service-content-box">
@@ -404,8 +413,8 @@
 
             <li class="service-item">
 
-              <div class="service-icon-box">
-                <img src="/website/assets/images/icon-design.svg" alt="design icon" width="40"> 
+              <div class="service-icon-box" aria-hidden="true">
+                <img src="/website/assets/images/icon-design.svg" alt="" width="40"> 
               </div>
 
               <div class="service-content-box">
@@ -419,8 +428,8 @@
             </li>
 
             <li class="service-item">
-              <div class="service-icon-box">
-                <img src="/website/assets/images/icon-photo.svg" alt="camera icon" width="40">
+              <div class="service-icon-box" aria-hidden="true">
+                <img src="/website/assets/images/icon-photo.svg" alt="" width="40">
               </div>
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Photography</h4>
@@ -432,8 +441,8 @@
             </li>
 
             <li class="service-item">
-              <div class="service-icon-box">
-                <img src="/website/assets/images/icon-app.svg" alt="mobile app icon" width="40">
+              <div class="service-icon-box" aria-hidden="true">
+                <img src="/website/assets/images/icon-app.svg" alt="" width="40">
               </div>
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Ongoing Support</h4>
@@ -444,7 +453,7 @@
             </li>
 
             <li class="service-item">
-              <div class="service-icon-box">
+              <div class="service-icon-box" aria-hidden="true">
                 <ion-icon name="shapes" style="font-size: 24px; color: #FFDB6E; margin: auto; display: block;"></ion-icon>
               </div>
               <div class="service-content-box">
@@ -588,29 +597,29 @@
 
           <h3 class="h3 clients-title">Industry Leaders I've Worked Alongside</h3>
 
-          <div class="clients-grid">
-            <div class="clients-item">
-              <img src="/website/assets/logos/ikea.png" alt="IKEA Logo">
+          <div class="clients-grid" role="list">
+            <div class="clients-item" role="listitem">
+              <img src="/website/assets/logos/ikea.png" alt="IKEA company logo">
             </div>
 
-            <div class="clients-item">
-              <img src="/website/assets/logos/microsoft.png" alt="Microsoft Logo">
+            <div class="clients-item" role="listitem">
+              <img src="/website/assets/logos/microsoft.png" alt="Microsoft company logo">
             </div>
 
-            <div class="clients-item">
-              <img src="/website/assets/logos/stanleypark.png" alt="Stanley Park Ecology Society Logo">
+            <div class="clients-item" role="listitem">
+              <img src="/website/assets/logos/stanleypark.png" alt="Stanley Park Ecology Society logo">
             </div>
 
-            <div class="clients-item">
-              <img src="/website/assets/logos/wesn.png" alt="West End Seniors Network Logo">
+            <div class="clients-item" role="listitem">
+              <img src="/website/assets/logos/wesn.png" alt="West End Seniors Network logo">
             </div>
 
-            <div class="clients-item">
-              <img src="/website/assets/logos/denmanmall.png" alt="Denman Mall Logo">
+            <div class="clients-item" role="listitem">
+              <img src="/website/assets/logos/denmanmall.png" alt="Denman Mall logo">
             </div>
 
-            <div class="clients-item">
-              <img src="/website/assets/logos/sustainablewww.png" alt="Sustainable WWW Logo">
+            <div class="clients-item" role="listitem">
+              <img src="/website/assets/logos/sustainablewww.png" alt="Sustainable WWW logo">
             </div>
           </div>
 
@@ -965,18 +974,18 @@
       
         <section class="projects">
       
-          <ul class="filter-list">
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
+          <ul class="filter-list" role="list">
+            <li class="filter-item" role="listitem">
+              <button class="active" data-filter-btn aria-label="Show all projects">All</button>
             </li>
-            <li class="filter-item">
-              <button data-filter-btn title="Complete technical setup both frontend and backend">Web Development</button>
+            <li class="filter-item" role="listitem">
+              <button data-filter-btn aria-label="Filter by web development projects">Web Development</button>
             </li>
-            <li class="filter-item">
-              <button data-filter-btn title="Google, Microsoft, Canva, TechSoup and other nonprofit tech grants">Nonprofit Tech Grants</button>
+            <li class="filter-item" role="listitem">
+              <button data-filter-btn aria-label="Filter by nonprofit tech grant projects">Nonprofit Tech Grants</button>
             </li>
-            <li class="filter-item">
-              <button data-filter-btn title="Improving existing websites with better design, visuals, and user experience">Web Design</button>
+            <li class="filter-item" role="listitem">
+              <button data-filter-btn aria-label="Filter by web design projects">Web Design</button>
             </li>
           </ul>
       
@@ -1004,109 +1013,109 @@
             </ul>
           </div>
       
-          <ul class="project-list">
+          <ul class="project-list" role="list">
       
-            <li class="project-item active" data-filter-item data-category="Web Development">
-              <a href="#" data-project-item="modal-safe-haven">
+            <li class="project-item active" data-filter-item data-category="Web Development" role="listitem">
+              <a href="#" data-project-item="modal-safe-haven" aria-label="View Safe Haven Services project details">
                 <figure class="project-img">
-                  <div class="project-item-icon-box">
+                  <div class="project-item-icon-box" aria-hidden="true">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="/website/assets/project/safehaven.png" alt="Safe Haven Services">
+                  <img src="/website/assets/project/safehaven.webp" alt="Safe Haven Services website homepage showing a clean, modern interface">
                 </figure>
                 <h3 class="project-title">Safe Haven Services</h3>
                 <p class="project-category">Web Development</p>
               </a>
             </li>
       
-            <li class="project-item active" data-filter-item data-category="Web Development">
-              <a href="#" data-project-item="modal-king-george">
+            <li class="project-item active" data-filter-item data-category="Web Development" role="listitem">
+              <a href="#" data-project-item="modal-king-george" aria-label="View The King George Times project details">
                 <figure class="project-img">
-                  <div class="project-item-icon-box">
+                  <div class="project-item-icon-box" aria-hidden="true">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="/website/assets/project/kgtimes.jpeg" alt="The King George Times">
+                  <img src="/website/assets/project/kgtimes.webp" alt="The King George Times website homepage showing a dynamic, user-friendly interface">
                 </figure>
                 <h3 class="project-title">The King George Times</h3>
                 <p class="project-category">Web Development</p>
               </a>
             </li>
       
-            <li class="project-item active" data-filter-item data-category="Web Design">
-              <a href="#" data-project-item="modal-breathwave">
+            <li class="project-item active" data-filter-item data-category="Web Development" role="listitem">
+              <a href="#" data-project-item="modal-breathwave" aria-label="View Breathwave project details">
                 <figure class="project-img">
-                  <div class="project-item-icon-box">
+                  <div class="project-item-icon-box" aria-hidden="true">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="/website/assets/project/breathwave.jpeg" alt="Breathwave">
+                  <img src="/website/assets/project/breathwave.webp" alt="Breathwave website homepage showing a serene, inviting interface">
                 </figure>
                 <h3 class="project-title">Breathwave</h3>
-                <p class="project-category">Web Design</p>
+                <p class="project-category">Web Development</p>
               </a>
             </li>
       
-            <li class="project-item active" data-filter-item data-category="Web Development">
-              <a href="#" data-project-item="modal-st-pauls">
+            <li class="project-item active" data-filter-item data-category="Web Development" role="listitem">
+              <a href="#" data-project-item="modal-st-pauls" aria-label="View St. Paul's Anglican Church project details">
                 <figure class="project-img">
-                  <div class="project-item-icon-box">
+                  <div class="project-item-icon-box" aria-hidden="true">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="/website/assets/project/stpauls.png" alt="St. Paul's Anglican Church">
+                  <img src="/website/assets/project/stpauls.webp" alt="St. Paul's Anglican Church website homepage showing a fast, sustainable, and easy-to-navigate interface">
                 </figure>
                 <h3 class="project-title">St. Paul's Anglican Church</h3>
                 <p class="project-category">Web Development</p>
               </a>
             </li>
       
-            <li class="project-item active" data-filter-item data-category="Nonprofit Tech Grants">
-              <a href="#" data-project-item="modal-wesn">
+            <li class="project-item active" data-filter-item data-category="Nonprofit Tech Grants" role="listitem">
+              <a href="#" data-project-item="modal-wesn" aria-label="View West End Seniors Network project details">
                 <figure class="project-img">
-                  <div class="project-item-icon-box">
+                  <div class="project-item-icon-box" aria-hidden="true">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="/website/assets/project/wesn.webp" alt="West End Seniors Network">
+                  <img src="/website/assets/project/wesn.webp" alt="West End Seniors Network website homepage showing a modern, user-friendly interface">
                 </figure>
                 <h3 class="project-title">West End Seniors Network</h3>
                 <p class="project-category">Nonprofit Tech Grants</p>
               </a>
             </li>
       
-            <li class="project-item active" data-filter-item data-category="Web Development,Nonprofit Tech Grants">
-              <a href="#" data-project-item="modal-pendrellis">
+            <li class="project-item active" data-filter-item data-category="Web Development,Nonprofit Tech Grants" role="listitem">
+              <a href="#" data-project-item="modal-pendrellis" aria-label="View Pendrellis Society project details">
                 <figure class="project-img">
-                  <div class="project-item-icon-box">
+                  <div class="project-item-icon-box" aria-hidden="true">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="/website/assets/project/pendrellis.jpeg" alt="Pendrellis Society">
+                  <img src="/website/assets/project/pendrellis.webp" alt="Pendrellis Society website homepage showing a modern, user-friendly interface">
                 </figure>
                 <h3 class="project-title">Pendrellis Society</h3>
                 <p class="project-category">Web Development, Nonprofit Tech Grants</p>
               </a>
             </li>
       
-            <li class="project-item active" data-filter-item data-category="Web Development,Nonprofit Tech Grants">
-              <a href="#" data-project-item="modal-denman-mall">
+            <li class="project-item active" data-filter-item data-category="Web Development,Nonprofit Tech Grants" role="listitem">
+              <a href="#" data-project-item="modal-denman-mall" aria-label="View Denman Place Mall project details">
                 <figure class="project-img">
-                  <div class="project-item-icon-box">
+                  <div class="project-item-icon-box" aria-hidden="true">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="/website/assets/logos/denmanmall.png" alt="Denman Place Mall">
+                  <img src="/website/assets/logos/denmanmall.png" alt="Denman Place Mall website homepage showing a modern, user-friendly interface">
                 </figure>
                 <h3 class="project-title">Denman Place Mall</h3>
                 <p class="project-category">Web Development, Nonprofit Tech Grants</p>
               </a>
             </li>
       
-            <li class="project-item active" data-filter-item data-category="Web Development">
-              <a href="#" data-project-item="modal-spes">
+            <li class="project-item active" data-filter-item data-category="Web Design" role="listitem">
+              <a href="#" data-project-item="modal-spes" aria-label="View Stanley Park Ecology Society project details">
                 <figure class="project-img">
-                  <div class="project-item-icon-box">
+                  <div class="project-item-icon-box" aria-hidden="true">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="/website/assets/project/spes.png" alt="Stanley Park Ecology Society">
+                  <img src="/website/assets/project/spes.webp" alt="Stanley Park Ecology Society website homepage showing a sustainable, eco-friendly interface">
                 </figure>
                 <h3 class="project-title">Stanley Park Ecology Society</h3>
-                <p class="project-category">Web Development</p>
+                <p class="project-category">Web Design</p>
               </a>
             </li>
       
@@ -1187,7 +1196,7 @@
 
           <div class="project-modal-content">
             <div class="project-modal-image">
-              <img src="/website/assets/project/safehaven.png" alt="Safe Haven Services">
+              <img src="/website/assets/project/safehaven.webp" alt="Safe Haven Services">
             </div>
             
             <div class="project-modal-details">
@@ -1250,7 +1259,7 @@
 
           <div class="project-modal-content">
             <div class="project-modal-image">
-              <img src="/website/assets/project/kgtimes.jpeg" alt="The King George Times">
+              <img src="/website/assets/project/kgtimes.webp" alt="The King George Times">
             </div>
             
             <div class="project-modal-details">
@@ -1306,40 +1315,40 @@
           <div class="project-modal-header">
             <div>
               <h4 class="project-modal-title">Breathwave</h4>
-              <p class="project-modal-category">Web Design</p>
-          </div>
+              <p class="project-modal-category">Web Development</p>
+            </div>
             <time datetime="2024-03-01">March 2024</time>
           </div>
 
           <div class="project-modal-content">
             <div class="project-modal-image">
-              <img src="/website/assets/project/breathwave.jpeg" alt="Breathwave">
+              <img src="/website/assets/project/breathwave.webp" alt="Breathwave website homepage showing a serene, inviting interface">
             </div>
             
             <div class="project-modal-details">
               <p class="project-modal-description">
-                Our redesign of Breathwave's website brings a serene, inviting interface that aligns perfectly with their mission of promoting holistic health and breath-focused wellness. The site features calming animations, intuitive navigation, and seamless appointment booking.
+                We crafted a dynamic, user-friendly website designed to deliver news faster and in a more engaging manner. The platform features real-time updates, responsive design, and optimized content delivery for the school community.
               </p>
               
               <div class="project-modal-tech">
-                <span class="tech-tag">Figma</span>
-                <span class="tech-tag">UI/UX Design</span>
-                <span class="tech-tag">Adobe XD</span>
-                <span class="tech-tag">Prototyping</span>
-                <span class="tech-tag">User Research</span>
+                <span class="tech-tag">React.js</span>
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">Tailwind CSS</span>
+                <span class="tech-tag">CMS Integration</span>
+                <span class="tech-tag">PWA</span>
               </div>
 
               <div class="project-modal-stats">
                 <div class="stat-item">
-                  <div class="stat-value">97%</div>
+                  <div class="stat-value">95%</div>
                   <div class="stat-label">Performance</div>
                 </div>
                 <div class="stat-item">
-                  <div class="stat-value">0.09g</div>
+                  <div class="stat-value">0.15g</div>
                   <div class="stat-label">CO2 per visit</div>
                 </div>
                 <div class="stat-item">
-                  <div class="stat-value">100%</div>
+                  <div class="stat-value">98%</div>
                   <div class="stat-label">Accessibility</div>
                 </div>
               </div>
@@ -1376,7 +1385,7 @@
 
           <div class="project-modal-content">
             <div class="project-modal-image">
-              <img src="/website/assets/project/stpauls.png" alt="St. Paul's Anglican Church">
+              <img src="/website/assets/project/stpauls.webp" alt="St. Paul's Anglican Church">
             </div>
             
             <div class="project-modal-details">
@@ -1502,7 +1511,7 @@
 
           <div class="project-modal-content">
             <div class="project-modal-image">
-              <img src="/website/assets/project/pendrellis.jpeg" alt="Pendrellis Society">
+              <img src="/website/assets/project/pendrellis.webp" alt="Pendrellis Society">
             </div>
             
             <div class="project-modal-details">
@@ -1621,14 +1630,14 @@
           <div class="project-modal-header">
             <div>
               <h4 class="project-modal-title">Stanley Park Ecology Society</h4>
-              <p class="project-modal-category">Web Development</p>
+              <p class="project-modal-category">Web Design</p>
             </div>
             <time datetime="2024-03-15">March 2024</time>
           </div>
 
           <div class="project-modal-content">
             <div class="project-modal-image">
-              <img src="/website/assets/project/spes.png" alt="Stanley Park Ecology Society">
+              <img src="/website/assets/project/spes.webp" alt="Stanley Park Ecology Society website homepage showing a sustainable, eco-friendly interface">
             </div>
             
             <div class="project-modal-details">
@@ -1637,11 +1646,11 @@
               </p>
               
               <div class="project-modal-tech">
-                <span class="tech-tag">WordPress</span>
-                <span class="tech-tag">Green Hosting</span>
-                <span class="tech-tag">Event System</span>
-                <span class="tech-tag">Donation Platform</span>
-                <span class="tech-tag">Resource Library</span>
+                <span class="tech-tag">Figma</span>
+                <span class="tech-tag">UI/UX Design</span>
+                <span class="tech-tag">Adobe XD</span>
+                <span class="tech-tag">Prototyping</span>
+                <span class="tech-tag">User Research</span>
               </div>
 
               <div class="project-modal-stats">
@@ -1787,18 +1796,21 @@
 
           <h3 class="h3 form-title">Contact Form</h3>
 
-          <form action="#" class="form" data-form>
+          <form action="#" class="form" data-form role="form" aria-label="Contact form">
 
             <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <label for="fullname" class="visually-hidden">Full name</label>
+              <input type="text" name="fullname" id="fullname" class="form-input" placeholder="Full name" required data-form-input aria-required="true">
 
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+              <label for="email" class="visually-hidden">Email address</label>
+              <input type="email" name="email" id="email" class="form-input" placeholder="Email address" required data-form-input aria-required="true">
             </div>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <label for="message" class="visually-hidden">Your Message</label>
+            <textarea name="message" id="message" class="form-input" placeholder="Your Message" required data-form-input aria-required="true"></textarea>
 
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
+            <button class="form-btn" type="submit" disabled data-form-btn aria-label="Send message">
+              <ion-icon name="paper-plane" aria-hidden="true"></ion-icon>
               <span>Send Message</span>
             </button>
 
