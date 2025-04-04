@@ -182,12 +182,14 @@
       aspect-ratio: 16/9;
       overflow: hidden;
       border-radius: 14px;
+      position: relative;
     }
     
     .project-modal-image img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      object-position: center;
       display: block;
       border-radius: 14px;
     }
@@ -200,18 +202,23 @@
     .project-img {
       aspect-ratio: 16/9;
       overflow: hidden;
+      position: relative;
+      border-radius: 14px;
     }
 
     .project-img img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 14px;
     }
 
     /* Specific positioning for Pendrellis images */
     [data-project-item="modal-pendrellis"] .project-img img,
     #modal-pendrellis .project-modal-image img {
-      object-position: center 30%;
+      object-fit: cover;
+      object-position: center 20%;
     }
   </style>
 
@@ -1005,7 +1012,7 @@
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="/website/assets/project/safehaven.png" alt="Safe Haven Services" loading="lazy" style="object-fit: contain; background: var(--eerie-black-1);">
+                  <img src="/website/assets/project/safehaven.png" alt="Safe Haven Services">
                 </figure>
                 <h3 class="project-title">Safe Haven Services</h3>
                 <p class="project-category">Web Development</p>
@@ -1018,7 +1025,7 @@
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="/website/assets/project/kgtimes.jpeg" alt="The King George Times" loading="lazy" style="object-fit: contain; background: var(--eerie-black-1);">
+                  <img src="/website/assets/project/kgtimes.jpeg" alt="The King George Times">
                 </figure>
                 <h3 class="project-title">The King George Times</h3>
                 <p class="project-category">Web Development</p>
@@ -1031,7 +1038,7 @@
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="/website/assets/project/breathwave.jpeg" alt="Breathwave" loading="lazy" style="object-fit: contain; background: var(--eerie-black-1);">
+                  <img src="/website/assets/project/breathwave.jpeg" alt="Breathwave">
                 </figure>
                 <h3 class="project-title">Breathwave</h3>
                 <p class="project-category">Web Design</p>
@@ -1044,7 +1051,7 @@
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="/website/assets/project/stpauls.png" alt="St. Paul's Anglican Church" loading="lazy">
+                  <img src="/website/assets/project/stpauls.png" alt="St. Paul's Anglican Church">
                 </figure>
                 <h3 class="project-title">St. Paul's Anglican Church</h3>
                 <p class="project-category">Web Development</p>
@@ -1057,7 +1064,7 @@
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="/website/assets/project/wesn.webp" alt="West End Seniors Network" loading="lazy" style="object-fit: contain; background: var(--eerie-black-1);">
+                  <img src="/website/assets/project/wesn.webp" alt="West End Seniors Network">
                 </figure>
                 <h3 class="project-title">West End Seniors Network</h3>
                 <p class="project-category">Nonprofit Tech Grants</p>
@@ -1070,7 +1077,7 @@
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="/website/assets/project/pendrellis.jpeg" alt="Pendrellis Society" loading="lazy" style="object-position: center 10%;">
+                  <img src="/website/assets/project/pendrellis.jpeg" alt="Pendrellis Society">
                 </figure>
                 <h3 class="project-title">Pendrellis Society</h3>
                 <p class="project-category">Web Development, Nonprofit Tech Grants</p>
@@ -1083,7 +1090,7 @@
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="/website/assets/logos/denmanmall.png" alt="Denman Place Mall" loading="lazy" style="object-fit: contain; padding: 2rem; background: var(--eerie-black-1);">
+                  <img src="/website/assets/logos/denmanmall.png" alt="Denman Place Mall">
                 </figure>
                 <h3 class="project-title">Denman Place Mall</h3>
                 <p class="project-category">Web Development, Nonprofit Tech Grants</p>
@@ -1096,7 +1103,7 @@
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="/website/assets/project/spes.png" alt="Stanley Park Ecology Society" loading="lazy" style="object-fit: contain; background: var(--eerie-black-1);">
+                  <img src="/website/assets/project/spes.png" alt="Stanley Park Ecology Society">
                 </figure>
                 <h3 class="project-title">Stanley Park Ecology Society</h3>
                 <p class="project-category">Web Development</p>
@@ -1180,7 +1187,7 @@
 
           <div class="project-modal-content">
             <div class="project-modal-image">
-              <img src="/website/assets/project/safehaven.png" alt="Safe Haven Services" style="object-fit: contain; background: var(--eerie-black-1);">
+              <img src="/website/assets/project/safehaven.png" alt="Safe Haven Services">
             </div>
             
             <div class="project-modal-details">
@@ -1243,7 +1250,7 @@
 
           <div class="project-modal-content">
             <div class="project-modal-image">
-              <img src="/website/assets/project/kgtimes.jpeg" alt="The King George Times" style="object-fit: contain; background: var(--eerie-black-1);">
+              <img src="/website/assets/project/kgtimes.jpeg" alt="The King George Times">
             </div>
             
             <div class="project-modal-details">
@@ -1306,7 +1313,7 @@
 
           <div class="project-modal-content">
             <div class="project-modal-image">
-              <img src="/website/assets/project/breathwave.jpeg" alt="Breathwave" style="object-fit: contain; background: var(--eerie-black-1);">
+              <img src="/website/assets/project/breathwave.jpeg" alt="Breathwave">
             </div>
             
             <div class="project-modal-details">
@@ -1432,7 +1439,7 @@
 
           <div class="project-modal-content">
             <div class="project-modal-image">
-              <img src="/website/assets/project/wesn.webp" alt="West End Seniors Network" style="object-fit: contain; background: var(--eerie-black-1);">
+              <img src="/website/assets/project/wesn.webp" alt="West End Seniors Network">
             </div>
             
             <div class="project-modal-details">
@@ -1495,7 +1502,7 @@
 
           <div class="project-modal-content">
             <div class="project-modal-image">
-              <img src="/website/assets/project/pendrellis.jpeg" alt="Pendrellis Society" style="object-position: center 10%;">
+              <img src="/website/assets/project/pendrellis.jpeg" alt="Pendrellis Society">
             </div>
             
             <div class="project-modal-details">
@@ -1558,7 +1565,7 @@
 
           <div class="project-modal-content">
             <div class="project-modal-image">
-              <img src="/website/assets/logos/denmanmall.png" alt="Denman Place Mall" style="object-fit: contain; padding: 2rem; background: var(--eerie-black-1);">
+              <img src="/website/assets/logos/denmanmall.png" alt="Denman Place Mall">
             </div>
             
             <div class="project-modal-details">
@@ -1621,7 +1628,7 @@
 
           <div class="project-modal-content">
             <div class="project-modal-image">
-              <img src="/website/assets/project/spes.png" alt="Stanley Park Ecology Society" style="object-fit: contain; background: var(--eerie-black-1);">
+              <img src="/website/assets/project/spes.png" alt="Stanley Park Ecology Society">
             </div>
             
             <div class="project-modal-details">
