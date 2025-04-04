@@ -2189,26 +2189,31 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .project-modal-stats {
   display: flex;
-  justify-content: flex-start;
-  gap: 15px;
-  margin-bottom: 20px;
+  justify-content: space-around;
+  gap: 1rem;
+  margin: 1.5rem 0;
 }
 
 .stat-item {
+  flex: 1;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80px;
 }
 
 .stat-value {
+  font-size: 1.5rem;
+  font-weight: 600;
   color: var(--orange-yellow-crayola);
-  font-size: var(--fs-5);
-  font-weight: var(--fw-700);
-  margin-bottom: 2px;
+  margin-bottom: 0.5rem;
 }
 
 .stat-label {
   color: var(--light-gray);
-  font-size: var(--fs-8);
-  text-transform: uppercase;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
 .project-modal-links {
@@ -2779,5 +2784,139 @@ textarea.form-input::-webkit-resizer { display: none; }
   
   .clients-item img {
     padding: 0.25rem;
+  }
+}
+
+.project-modal-quote {
+  background: var(--eerie-black-2);
+  border-left: 4px solid var(--orange-yellow-crayola);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 14px 14px 0;
+}
+
+.project-modal-quote p {
+  color: var(--light-gray);
+  font-style: italic;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.project-modal-quote footer cite {
+  color: var(--orange-yellow-crayola);
+  font-size: 0.9rem;
+  font-style: normal;
+}
+
+.tooltip-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-icon {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  color: var(--orange-yellow-crayola);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.info-icon:hover {
+  color: var(--light-gray);
+}
+
+/* Desktop tooltip styles */
+@media (min-width: 769px) {
+  .tooltip {
+    position: absolute;
+    bottom: calc(100% + 15px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 220px;
+    padding: 12px;
+    background: var(--eerie-black-2);
+    color: var(--light-gray);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--jet);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+  }
+
+  .tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background: var(--eerie-black-2);
+    border-right: 1px solid var(--jet);
+    border-bottom: 1px solid var(--jet);
+  }
+
+  .tooltip-container:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Mobile tooltip styles */
+@media (max-width: 768px) {
+  .tooltip {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    padding: 20px;
+    background: var(--eerie-black-2);
+    color: var(--light-gray);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--jet);
+    z-index: 1000;
+  }
+
+  .tooltip.active {
+    display: block;
+  }
+
+  .tooltip ul {
+    margin-top: 8px;
+    padding-left: 20px;
+  }
+
+  .tooltip li {
+    margin-bottom: 4px;
+    list-style-type: disc;
+  }
+
+  .tooltip-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+  }
+
+  .tooltip-overlay.active {
+    display: block;
   }
 }
