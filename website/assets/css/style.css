@@ -2764,6 +2764,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 @media (max-width: 768px) {
   .clients-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
     padding: 0 0.5rem;
   }
@@ -2775,15 +2776,17 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 @media (max-width: 480px) {
   .clients-grid {
-    gap: 0.5rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 300px;
   }
   
   .clients-item {
-    padding: 0.5rem;
+    padding: 1rem;
   }
   
   .clients-item img {
-    padding: 0.25rem;
+    padding: 0.5rem;
   }
 }
 
